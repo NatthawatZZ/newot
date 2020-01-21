@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>ค่า OT</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<style>
+	body{
+		line-height: 2em;
+		font-family: 'kanit';
+	}
+	input{
+		line-height: 1.5em;
+	}
+	.containform{
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+		padding: 5em;
+		box-sizing: border-box;
+		position: relative;
+		background-color: white;
+		font-size: 15px;
+        margin-bottom: 40px;
+	}
+	.containform:after{
+		content: '';
+		position: absolute;
+		left: -1px;
+		height: 98%;
+		top: 1%;
+		
+	}
+	.btnplus{
+		border-radius: 50%;
+		padding: 0;
+		width: 30px;
+		height: 30px;
+		font-size: 25px;
+        line-height: 0px;
+        padding-bottom: 3px;
+    }
+	.inputtext{
+        display:inline;
+	}
+	.inputmoney{
+        display: block;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #ddd;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+
+	}
+	.btn-save{
+		padding: 0.5em 3em;
+		margin: 5em 1em 0 1em;
+	}
+	div.hidetext{
+		line-height: 3em;
+		margin:0.5em 0 0 1.5em;
+		display: none;
+	}
+	h2{
+		text-align: center;
+    }
+    h5{
+        color: white;
+        padding-top: 5px;
+    }
+    
+</style>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">&nbsp; &nbsp;<i class="fas fa-hourglass-half" ></i> BWS </a><button class="btn btn-link btn-sm order-1 order-lg-0"
+            id="sidebarToggle" href="#"><i class="fas fa-bars"></i> </button> 
+            <h5>ระบบขอเบิกค่าทำงานล่วงเวลาและค่าเดินทางยานพาหนะ</h5><!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <div class="input-group">
+               
+                <div class="input-group-append">
+                    <!-- <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button> -->
+                </div>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">ข้อมูลส่วนตัว</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="login.html">ออกจากระบบ</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            หน้าแรก
+                        </a>
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-clock"></i></div>
+                            ค่า OT
+                        </a>
+
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-luggage-cart"></i></div>
+                            ค่าเดินทาง
+                        </a>
+                        <!-- <div class="sb-sidenav-menu-heading">รายงาน</div> -->
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
+                            aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon">&nbsp;<i class="fas fa-paste"></i></div>
+                            รายงาน
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">รายงานค่า OT</a>
+                                <a class="nav-link" href="#">รายงานค่าเดินทาง</a>
+                                <a class="nav-link" href="#">รายงานประจำเดือน</a>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Bangkok Web Solutions
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid"> 
+                    <ol class="breadcrumb mb-4">
+                       <h4><li class="breadcrumb-item active">ระบบขอเบิกค่าทำงานล่วงเวลา (OT)</li></h4> 
+                    </ol>
+                    <div class="row">
+                        <div class="container-fluid mt-5">
+                            <div class="containform mx-5">
+                                <h6>Firstname Lastname</h6>
+                                <p class="mt-4">00/00/2563</p>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <p>ขอเบิกค่า</p>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="form-row">
+                                            <div class="col-sm-2">
+                                                <input type="radio" name="radio1">&nbsp;<label>ทำงานล่วงเวลา</label>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <input type="radio" name="radio1">&nbsp;<label>ทำงานในวันหยุด</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="radio"
+                                                    name="radio1">&nbsp;<label>ทำงานล่วงเวลาในวันหยุด</label> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="form-row commisdetail">
+                                            <div class="col-sm-2">
+                                                <input type="radio" name="radio1">&nbsp;<label>ค่าคอมมิชชั่น</label>
+                                            </div>
+                                
+                
+                                        </div>
+                                        <div class="hidetext">
+                                            <label>ชื่อโครงการ </label>
+                                            <input class="inputtext" type="text" name="withdraw" placeholder="ระบุ...">
+                                            <br>
+
+                                            <!-- <label> จำนวนเงิน </label> -->
+                                            จำนวนเงิน : <input class="inputtext" type="text" name="withdraw" placeholder="ระบุ..."> บาท
+                                            
+                                            <br>
+                                            <div class="form-row">
+                                                <div class="col-sm-2">
+                                                    <input type="radio" name="radio2">&nbsp;<label>3% (รัฐบาล)</label>
+                                                </div>
+
+                                                <div class="col-sm-2">
+                                                    <input type="radio" name="radio2">&nbsp;<label>5% (เอกชน)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-2">
+                                        <p>เมื่อวันที่</p>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input class="inputtext" type="date" name="date">
+                                        <div class="d-inline-block mx-2">
+                                            <span class="mr-2">ตั้งแต่เวลา</span>
+                                            <input class="inputtext" type="time" name="time1">
+                                        </div>
+                                        <div class="d-inline-block mx-2">
+                                            <span class="mr-2">ถึง</span>
+                                            <input class="inputtext" type="time" name="time2">
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <button type="button" class="btn btn-primary btnplus" id="plus"
+                                                onclick="formShow()">+</button>
+                                        </div>
+                                        <!-- <div class="d-inline-block">
+                                            <button type="button" class="btn btn-success btnminus" id="plus00" onclick="formShow()">-</button>
+                                        </div>  -->
+                                    </div>
+                                </div>
+                                <div id="plus1">
+                                    <div class="row mt-3">
+                                        <div class="col-md-2">
+                                            <p>เมื่อวันที่</p>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input class="inputtext" type="date" name="date1">
+                                            <div class="d-inline-block mx-2">
+                                                <span class="mr-2">ตั้งแต่เวลา</span>
+                                                <input class="inputtext" type="time" name="time3">
+                                            </div>
+                                            <div class="d-inline-block mx-2">
+                                                <span class="mr-2">ถึง</span>
+                                                <input class="inputtext" type="time" name="time4">
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <button type="button" class="btn btn-primary btnplus" id="plus2"
+                                                    onclick="formShow()">+</button>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <button type="button" class="btn btn-danger btnplus" id="plus02"
+                                                    onclick="formShow()">-</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="plus3">
+                                    <div class="row mt-3">
+                                        <div class="col-md-2">
+                                            <p>เมื่อวันที่</p>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input class="inputtext" type="date" name="date2">
+                                            <div class="d-inline-block mx-2">
+                                                <span class="mr-2">ตั้งแต่เวลา</span>
+                                                <input class="inputtext" type="time" name="time5">
+                                            </div>
+                                            <div class="d-inline-block mx-2">
+                                                <span class="mr-2">ถึง</span>
+                                                <input class="inputtext" type="time" name="time6">
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <button type="button" class="btn btn-primary btnplus" id="plus4"
+                                                    onclick="formShow()">+</button>
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <button type="button" class="btn btn-danger btnplus" id="plus04"
+                                                    onclick="formShow()">-</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="plus5">
+                                    <div class="row mt-3">
+                                        <div class="col-md-2">
+                                            <p>และเมื่อวันที่</p>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input class="inputtext" type="date" name="date3">
+                                            <div class="d-inline-block mx-2">
+                                                <span class="mr-2">ตั้งแต่เวลา</span>
+                                                <input class="inputtext" type="time" name="time7">
+                                            </div>
+                                            <div class="d-inline-block mx-2">
+                                                <span class="mr-2">ถึง</span>
+                                                <input class="inputtext" type="time" name="time8">
+                                            </div>
+                                            <div class="d-inline-block">
+                                                <button type="button" class="btn btn-danger btnplus" id="plus06"
+                                                    onclick="formShow()">-</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-2">
+                                        <p>งานที่ได้รับมอบหมาย</p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="md-form">
+                                            <textarea id="textarea-char-counter" 
+                                            class="form-control md-textarea" length="120" rows="3" placeholder="ระบุ..." ></textarea>
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-3">
+                                        <p>ขอเบิกค่าตอบแทนเป็นเงินทั้งสิ้น</p>
+                                    </div>
+                                    <div class="col-md-8 form-row">
+                                        <input class="inputmoney" style="width:50%;" type="text" placeholder="จำนวนเงิน">
+                                        <span class="ml-2">บาท</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                        <button type="button" class="btn btn-primary btn-save">บันทึก</button>
+                                        <button type="button" class="btn btn-danger btn-save">ยกเลิก</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="col-4">
+        <img src="img/otsd.png" class="img1">
+      </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/datatables-demo.js"></script>
+    <script>
+        $("input[name='radio1']").change(function () {
+            if ($(".commisdetail input").is(":checked",true)) {
+                $('.hidetext').show();
+            }else{
+                $('.hidetext').hide();
+            }
+        });
+    </script>
+</body>
+<script>
+	$(function(){
+		$('#plus1').hide();
+		$('#plus').click(function(){
+			$('#plus1').toggle(100);
+            $('#plus').hide();	
+		});
+	});
+</script>
+<script>
+		$('#plus3').hide();
+		$("#plus2").click(function(){
+  			$("#plus3").show();
+              $('#plus2').hide();
+              $('#plus02').hide();
+});
+		
+</script>
+<script>
+		$('#plus5').hide();
+		$("#plus4").click(function(){
+  			$("#plus5").show();
+              $('#plus4').hide();
+              $('#plus04').hide();
+});
+		
+</script>
+<script>
+ $("#plus02").click(function(){
+    $("#plus1").hide();
+    $('#plus').show();
+  });
+</script>
+<script>
+ $("#plus04").click(function(){
+    $("#plus3").hide();
+    $('#plus2').show();
+    $('#plus02').show();
+  });
+</script>
+<script>
+ $("#plus06").click(function(){
+    $("#plus5").hide();
+    $('#plus4').show();
+    $('#plus04').show();
+  });
+</script>
+</html>
