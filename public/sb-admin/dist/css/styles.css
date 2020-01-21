@@ -68,7 +68,7 @@ body {
   text-align: left;
   background-color: #fff;
   /* background-image: url(../img/bg-01.jpg); */
-  
+
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2463,7 +2463,7 @@ fieldset:disabled a.btn {
   background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(2,67,255,1) 0%, rgb(27, 144, 233) 90% );
   padding-left: 50px;
     padding-right: 50px;
-  
+
 }
 .btn-primary:hover {
   color: #fff;
@@ -7741,6 +7741,7 @@ button.bg-dark:focus {
 
 .pb-4,
 .py-4 {
+
   padding-bottom: 1.5rem !important;
 }
 

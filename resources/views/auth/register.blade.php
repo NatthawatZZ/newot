@@ -25,7 +25,7 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">รหัสพนักงาน*</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
+                                                <input class="form-control " id="inputFirstName" type="text"
                                                     placeholder="รหัสพนักงาน" />
                                             </div>
                                         </div>
@@ -36,19 +36,20 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">คำนำหน้า</label>
-                                                <select class="form-control py-4 " id="exampleFormControlSelect1"
+                                                <select class="form-control " id="exampleFormControlSelect1"
                                                     placeholder="เลือกคำนำหน้า">
                                                     <option>นาย</option>
                                                     <option>นาง</option>
                                                     <option>นางสาว</option>
                                                 </select>
                                             </div>
+
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">ชื่อ*
                                                 </label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
+                                                <input class="form-control " id="inputFirstName" type="text"
                                                     placeholder="ชื่อ" />
                                             </div>
                                         </div>
@@ -56,33 +57,32 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName"> นามสกุล*</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
+                                                <input class="form-control " id="inputFirstName" type="text"
                                                     placeholder="นามสกุล" />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="small mb-1"
                                                     for="inputFirstName">วัน/เดือน/ปีเกิด*</label>
-                                                <input type="date" class="form-control py-4" id="inputFirstName"
+                                                <input type="date" class="form-control " id="birth_date"
                                                     placeholder="วัน/เดือน/ปี เกิด">
                                             </div>
                                         </div>
-
-                                        <div class="col-md-5">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">อายุ</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
-                                                    placeholder="อายุ" />
+                                                <input class="form-control " id="age" name="age" type="text"
+                                                   readonly/>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">ตำแหน่งงาน*</label>
-                                                <select class="form-control py-4 " id="exampleFormControlSelect1"
+                                                <select class="form-control  " id="exampleFormControlSelect1"
                                                     placeholder="เลือกคำนำหน้า">
                                                     <option value="0">ตำแหน่งงาน</option>
                                                     <option value="1">Event Marketing Director</option>
@@ -105,7 +105,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">เบอร์โทรศัพท์</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
+                                                <input class="form-control " id="inputFirstName" type="text"
                                                     placeholder="เบอร์โทรศัพท์" />
                                             </div>
                                         </div>
@@ -115,14 +115,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">อีเมลล์*</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
+                                                <input class="form-control " id="inputFirstName" type="text"
                                                     placeholder="อีเมลล์" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">รหัสผ่าน*</label>
-                                                <input class="form-control py-4" id="inputFirstName" type="text"
+                                                <input class="form-control " id="inputFirstName" type="text"
                                                     placeholder="รหัสผ่าน" />
                                             </div>
                                         </div>
@@ -141,13 +141,13 @@
             </div>
         </main>
     </div>
-
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
 <script src="sb-admin/dist/js/scripts.js"></script>
-
+<script src="sb-admin/dist/js/calage.js"></script>
 @endsection
 
 <!-- <div class="container">
