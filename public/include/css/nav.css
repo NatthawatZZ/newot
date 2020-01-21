@@ -1,0 +1,13 @@
+* {
+    font-family: "kanit";
+  }
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: 4.5rem;
+    padding-left: 0.5rem;
+}
+
+#imgsb .img {
+    vertical-align: middle;
+    border-style: none;
+    margin-left: 9px;
+}
