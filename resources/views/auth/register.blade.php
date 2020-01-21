@@ -68,14 +68,14 @@
                                             <div class="form-group">
                                                 <label class="small mb-1"
                                                     for="inputFirstName">วัน/เดือน/ปีเกิด*</label>
-                                                <input type="date" class="form-control " id="birth_date"
-                                                    placeholder="วัน/เดือน/ปี เกิด">
+                                                <input type="date" class="form-control " id="date"
+                                                    placeholder="วัน/เดือน/ปี เกิด"  onchange="calAge(this);">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">อายุ</label>
-                                                <input class="form-control " id="age" name="age" type="text"
+                                                <input class="form-control " id="age"  type="text"
                                                    readonly/>
                                             </div>
                                         </div>
@@ -148,6 +148,9 @@
     crossorigin="anonymous"></script>
 <script src="sb-admin/dist/js/scripts.js"></script>
 <script src="sb-admin/dist/js/calage.js"></script>
+
+
+
 @endsection
 
 <!-- <div class="container">
