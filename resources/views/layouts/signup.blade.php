@@ -27,7 +27,6 @@
         }</script>
 
 </head>
-
 <body class="bg-primary" >
   @yield('content')
 </body>

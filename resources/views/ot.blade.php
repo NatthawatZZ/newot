@@ -77,8 +77,6 @@
     }
 
 </style>
-<div id="layoutSidenav_content">
-<div class="container-fluid">
     <ol class="breadcrumb mb-4">
        <h4><li class="breadcrumb-item active">ระบบขอเบิกค่าทำงานล่วงเวลา (OT)</li></h4>
     </ol>
@@ -264,6 +262,5 @@
         </div>
 
     </div>
-</div>
-</div>
+
 @endsection
