@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'psn_id', 'mb_title', 'mb_fname', 'mb_lname','mb_age',
+        'mb_birth','pst_id','mb_mobile','mb_email','mb_password'
     ];
 
     /**
@@ -25,7 +26,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+      'password', 'remember_token',
+        // 'mb_password',
     ];
 
     /**
@@ -34,6 +36,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+      'email_verified_at' => 'datetime',
+        // 'psn_id' => 'datetime',
     ];
 }

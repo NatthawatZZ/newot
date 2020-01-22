@@ -23,7 +23,7 @@
              var tmp = o.value.split("-");
              var current = new Date();
              var current_year = current.getFullYear();
-             document.getElementById("age").value = current_year - tmp[0];
+             document.getElementById("mb_age").value = current_year - tmp[0];
         }</script>
 
 </head>

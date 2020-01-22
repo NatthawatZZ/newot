@@ -1,6 +1,21 @@
 @extends('layouts.signup')
 
 @section('content')
+
+@if(count($errors)  > 0)
+      <div class="alert alert-danger">
+       <ul> @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+      </ul>
+       </div>
+      @endif
+      @if(\Session::has('success'))
+      <div class="alert alert-success">
+      <p>{{ \Session::get('success') }}</p>
+    </div>
+@endif
+
 <nav class="navbar navbar-light bg-light shadow">
     <a class="navbar-brand " href="#">
         <img src="sb-admin/img/logov2-02-01.png" width="100%" height="100%" class="d-inline-block align-top" alt="">
@@ -19,13 +34,13 @@
                             </div>
                             <hr>
                             <div class="card-body">
-                              <form method="POST" action="{{ route('register') }}">
-                                  @csrf
+                              <form method="POST" action="{{ url('register') }}">
+                                    {{ csrf_field() }}
                                     <div class="form-row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">รหัสพนักงาน*</label>
-                                                <input class="form-control " id="inputFirstName" type="text"
+                                                <input class="form-control"  name="psn_id" id="inputFirstName" type="text"
                                                     placeholder="รหัสพนักงาน" />
                                             </div>
                                         </div>
@@ -36,7 +51,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">คำนำหน้า</label>
-                                                <select class="form-control " id="exampleFormControlSelect1"
+                                                <select class="form-control " name="mb_title" id="exampleFormControlSelect1"
                                                     placeholder="เลือกคำนำหน้า">
                                                     <option>นาย</option>
                                                     <option>นาง</option>
@@ -49,7 +64,7 @@
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">ชื่อ*
                                                 </label>
-                                                <input class="form-control " id="inputFirstName" type="text"
+                                                <input class="form-control "  name="mb_fname" id="inputFirstName" type="text"
                                                     placeholder="ชื่อ" />
                                             </div>
                                         </div>
@@ -57,7 +72,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName"> นามสกุล*</label>
-                                                <input class="form-control " id="inputFirstName" type="text"
+                                                <input class="form-control "   name="mb_lname" id="inputFirstName" type="text"
                                                     placeholder="นามสกุล" />
                                             </div>
                                         </div>
@@ -68,21 +83,21 @@
                                             <div class="form-group">
                                                 <label class="small mb-1"
                                                     for="inputFirstName">วัน/เดือน/ปีเกิด*</label>
-                                                <input type="date" class="form-control " id="date"
+                                                <input type="date" class="form-control " name="mb_birth" id="date"
                                                     placeholder="วัน/เดือน/ปี เกิด"  onchange="calAge(this);">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">อายุ</label>
-                                                <input class="form-control " id="age"  type="text"
+                                                <input class="form-control" id="mb_age" name="mb_age"  type="text"
                                                    readonly/>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">ตำแหน่งงาน*</label>
-                                                <select class="form-control  " id="exampleFormControlSelect1"
+                                                <select class="form-control"  name="pst_id" id="exampleFormControlSelect1"
                                                     placeholder="เลือกคำนำหน้า">
                                                     <option value="0">ตำแหน่งงาน</option>
                                                     <option value="1">Event Marketing Director</option>
@@ -105,7 +120,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">เบอร์โทรศัพท์</label>
-                                                <input class="form-control " id="inputFirstName" type="text"
+                                                <input class="form-control " name="mb_mobile" id="inputFirstName" type="text"
                                                     placeholder="เบอร์โทรศัพท์" />
                                             </div>
                                         </div>
@@ -115,14 +130,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">อีเมลล์*</label>
-                                                <input class="form-control " id="inputFirstName" type="text"
+                                                <input class="form-control "  name="mb_email" id="inputFirstName" type="text"
                                                     placeholder="อีเมลล์" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">รหัสผ่าน*</label>
-                                                <input class="form-control " id="inputFirstName" type="text"
+                                                <input class="form-control " name="mb_password" id="inputFirstName" type="password"
                                                     placeholder="รหัสผ่าน" />
                                             </div>
                                         </div>
@@ -132,7 +147,11 @@
                                         <button type="submit" class="btn btn-primary btn-block btn-lg " >ลงทะเบียน</button>
                                     </div>
                                     <br>
+
+
                                 </form>
+
+
                             </div>
 
                         </div>
@@ -148,8 +167,6 @@
     crossorigin="anonymous"></script>
 <script src="sb-admin/dist/js/scripts.js"></script>
 <script src="sb-admin/dist/js/calage.js"></script>
-
-
 
 @endsection
 
