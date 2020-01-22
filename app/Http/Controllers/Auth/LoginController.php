@@ -47,32 +47,25 @@ class LoginController extends Controller
             'password' => $request->get('password'),
         ];
     }
-    /**
-     * Determine if the request field is email or username.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return string
-     */
+
     public function field(Request $request)
     {
         $email = $this->username();
-        return filter_var($request->get($email), FILTER_VALIDATE_EMAIL) ? $email : 'psn_id';
+        return filter_var($request->get($email), FILTER_VALIDATE_EMAIL) ? $email : 'email';
     }
 
-    /**
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     */
     protected function validateLogin(Request $request)
     {
-        // dd($request->email);
-        $findpersonner = table_personnel::where('psn_per_id',$request->email)->first();
-        dd($findpersonner);
-        $field = $this->field($request->email);
+        // dd($request->all());
+        $findpersonner = table_personnel::with('getUser')->where('psn_per_id',$request->email)->first();
+        // dd($findpersonner->getUser->email);
+        if ($findpersonner != null) {
+            // exit("ดิน");
+            $request->merge(['email' => $findpersonner->getUser->email]);
+        }
+        // dd($request->all());
+        $field = $this->field($request);
         $messages = ["{$this->username()}.exists" => 'ไม่พบผู้ใช้นี้'];
-        // dd($messages);
         $this->validate($request, [
             $this->username() => "required|exists:users,{$field}",
             'password' => 'required',
