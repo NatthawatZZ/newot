@@ -77,7 +77,15 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-row">
+                                      <div class="col-md-12">
+                                          <div class="form-group">
+                                              <label class="small mb-1" for="inputFirstName">เลขประจำตัวประชาชน*</label>
+                                              <input class="form-control "  name="mb_idcard" id="inputFirstName" type="text"
+                                                  placeholder="เลขประจำตัวประชาชน" />
+                                          </div>
+                                      </div>
+                                    </div>
                                     <div class="form-row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -130,14 +138,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">อีเมลล์*</label>
-                                                <input class="form-control "  name="mb_email" id="inputFirstName" type="text"
+                                                <input class="form-control "  name="email" id="inputFirstName" type="email"
                                                     placeholder="อีเมลล์" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputFirstName">รหัสผ่าน*</label>
-                                                <input class="form-control " name="mb_password" id="inputFirstName" type="password"
+                                                <input class="form-control " name="password" id="inputFirstName" type="password"
                                                     placeholder="รหัสผ่าน" />
                                             </div>
                                         </div>
@@ -147,9 +155,9 @@
                                         <button type="submit" class="btn btn-primary btn-block btn-lg " >ลงทะเบียน</button>
                                     </div>
                                     <br>
-
-
                                 </form>
+                                </div>
+
 
 
                             </div>
