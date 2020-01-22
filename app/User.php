@@ -2,6 +2,7 @@
 
 namespace App;
 use App\User;
+use App\table_personnel;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,8 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'psn_id', 'mb_title', 'mb_fname', 'mb_lname','mb_age',
-        'mb_birth','pst_id','mb_mobile','mb_email','mb_password'
+        'psn_id', 'mb_title', 'mb_fname', 'mb_lname','mb_age','mb_idcard',
+        'mb_birth','pst_id','mb_mobile','email','password'
     ];
 
     /**
@@ -39,4 +40,9 @@ class User extends Authenticatable
       'email_verified_at' => 'datetime',
         // 'psn_id' => 'datetime',
     ];
+
+    public function psn_per_id()
+    {
+      return $this->belongsTo(table_personnel::class,'psn_per_id','psn_id');
+  }
 }

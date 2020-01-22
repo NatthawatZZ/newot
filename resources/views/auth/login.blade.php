@@ -22,7 +22,7 @@
                                     <h3 class="text-center font-weight-light"> <b> เข้าสู่ระบบ</b></h3>
                                     <div class="form-group"><label class="small mb-1"
                                             for="inputEmailAddress">รหัสพนักงาน</label>
-                                    <input id="email" type="email" class="form-control py-4 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="รหัสพนักงาน">
+                                    <input id="email" type="text" class="form-control py-4 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="รหัสพนักงาน">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
